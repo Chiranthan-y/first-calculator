@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project chiranthan with libraries in sub-folder">
+    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
+    <!--ANT 1.7 is required                                        -->
+    <!--define folder properties-->
+    <property name="dir.buildfile" value="."/>
+    <property name="dir.workspace" value="F:/CHIRANTHAN/java/Eclipse"/>
+    <property name="dir.jarfile" value="${dir.workspace}/calculator"/>
+    <target name="create_run_jar">
+        <jar destfile="${dir.jarfile}/CALCULTOR.jar">
+            <manifest>
+                <attribute name="Main-Class" value="chiranthan.suma"/>
+                <attribute name="Class-Path" value=". CALCULTOR_lib/jgoodies-common-1.8.0.jar CALCULTOR_lib/jgoodies-forms-1.8.0.jar"/>
+            </manifest>
+            <fileset dir="${dir.workspace}/chiranthan/bin"/>
+        </jar>
+        <delete dir="${dir.jarfile}/CALCULTOR_lib"/>
+        <mkdir dir="${dir.jarfile}/CALCULTOR_lib"/>
+        <copy file="${dir.workspace}/chiranthan/jgoodies-common-1.8.0.jar" todir="${dir.jarfile}/CALCULTOR_lib"/>
+        <copy file="${dir.workspace}/chiranthan/jgoodies-forms-1.8.0.jar" todir="${dir.jarfile}/CALCULTOR_lib"/>
+    </target>
+</project>
